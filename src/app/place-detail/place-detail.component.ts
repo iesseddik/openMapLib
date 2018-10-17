@@ -38,7 +38,7 @@ export class PlaceDetailComponent implements OnInit {
     this.placeService.getPlace(id)
       .subscribe(place => {
         this.place = place;
-        //this.mapViewSetterService.setViewerBounds(place)
+        this.mapViewSetterService.setViewerBounds([place] )
       });
   }
 

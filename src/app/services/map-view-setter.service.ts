@@ -5,6 +5,9 @@ import * as L from 'leaflet';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { MapDisplayerService } from './map-displayer.service';
 import { IDisplayedPlace } from '../model/intf/IDisplayedPlace';
+import { Place } from '../model/Place';
+
+const defaultBounds: L.LatLngBounds = L.latLngBounds([-80, 80], [80, -80]);
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +17,7 @@ export class MapViewSetterService {
   private viewerBounds: L.LatLngBounds;
 
   constructor(private mapDisplayerService: MapDisplayerService) {
-    this.viewerBounds = L.latLngBounds([-80, 80], [80, -80]);
+    this.viewerBounds = defaultBounds
     
     this.viewerBounds$ = new BehaviorSubject<L.LatLngBounds>(Object.assign(this.viewerBounds));
     this.mapDisplayerService.markerGroupSubject.subscribe(markerGrp => {
@@ -33,11 +36,12 @@ export class MapViewSetterService {
     this.viewerBounds$.next(this.viewerBounds)
   }
 
-  setViewerBounds(featureGrp:L.FeatureGroup ){
-    this.viewerBounds = featureGrp.getBounds()
+  setViewerBounds(places: Place[] ){
+    if (places.length > 0){
+      this.viewerBounds = new L.LatLngBounds(places.map(place => place.localization))
+      console.log(this.viewerBounds.isValid()) 
+    }
     this.emitViewerBoundsSubject()
   }
-
-
 
 }

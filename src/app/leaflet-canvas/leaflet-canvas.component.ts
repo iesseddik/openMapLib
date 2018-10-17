@@ -48,7 +48,7 @@ export class LeafletCanvasComponent implements OnInit {
       places.forEach(p => this.mapDisplayerService.addPlaceToList(p));
     });
 
-    this.viewSetterService.viewerBounds$.subscribe(vb => this.mapCanvas.fitBounds(vb) )
+    this.viewSetterService.viewerBounds$.subscribe(vb => this.mapCanvas.flyToBounds(vb) )
 
   }
 
