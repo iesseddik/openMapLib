@@ -35,7 +35,6 @@ export class LeafletCanvasComponent implements OnInit {
 
   ngOnInit() {
     // SEE PLANET WMTS @ : https://developers.planet.com/docs/api/tile-services/
-    // api key : a3a57cb4fe0341a2afa9b8ab5905ed39
     this.mapCanvas = L.map('map', { zoomControl: false }).setView([0, 0], 1);
     defaultTilLayer.addTo(this.mapCanvas); // applying tile
 
