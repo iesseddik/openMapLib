@@ -1,0 +1,15 @@
+<div *ngIf="place">
+
+  <h2>{{place.name | uppercase}} Details</h2>
+  <div><span>localization: </span>{{place.localization}}</div>
+  <div>
+    <label>Set localization:
+      <input [(ngModel)]="place.localization[0]" placeholder="Longitude">
+      <input [(ngModel)]="place.localization[1]" placeholder="Latitude">
+
+    </label>
+  </div>
+  <button (click)="save()">save</button>
+  <button (click)="goBack()">go back</button>
+
+</div>
