@@ -32,7 +32,7 @@ export class PlaceService {
       tap(places => {
         this.log('fetched places');
         this.mapDisplayerService.clearPlacesList();
-        places.forEach(p => this.mapDisplayerService.addPlaceToList(p))
+        places.forEach(p => this.mapDisplayerService.addPlaceToList(p));
         // ToDo : setview on bbox
         }
       ),

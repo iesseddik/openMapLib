@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlacesComponent } from './places.component';
+import { OlCanvasComponent } from './ol-canvas.component';
 
-describe('PlacesComponent', () => {
-  let component: PlacesComponent;
-  let fixture: ComponentFixture<PlacesComponent>;
+describe('OlCanvasComponent', () => {
+  let component: OlCanvasComponent;
+  let fixture: ComponentFixture<OlCanvasComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlacesComponent ]
+      declarations: [ OlCanvasComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PlacesComponent);
+    fixture = TestBed.createComponent(OlCanvasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

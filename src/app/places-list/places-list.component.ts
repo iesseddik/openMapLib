@@ -9,10 +9,10 @@ import { PlaceService } from '../services/place.service';
 
 @Component({
   selector: 'app-places',
-  templateUrl: './places.component.html',
-  styleUrls: ['./places.component.css']
+  templateUrl: './places-list.component.html',
+  styleUrls: ['./places-list.component.css']
 })
-export class PlacesComponent implements OnInit {
+export class PlacesListComponent implements OnInit {
   places: Place[];
 
   constructor(private placeService: PlaceService ) { }
@@ -28,7 +28,7 @@ export class PlacesComponent implements OnInit {
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.placeService.addPlace({ 'name':name, "localization":[null, null] } as Place)
+    this.placeService.addPlace({ 'name': name, 'localization': [null, null] } as Place)
       .subscribe(place => {
         this.places.push(place);
       });

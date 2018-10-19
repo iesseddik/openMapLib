@@ -2,8 +2,15 @@
 
 <div class='appContainer'>
   <div id='appTop' >
+    <button (click) = "setMapLibTo('Leaflet')" > Leaflet </button>
+    <button (click) = "setMapLibTo('OpenLayers')" > OpenLayers </button>
+    <h2>
+    {{libView}}
+    </h2>
+    <app-leaflet-canvas *ngIf="libView === 'Leaflet'"></app-leaflet-canvas>
+    <app-ol-canvas *ngIf="libView === 'OpenLayers'"></app-ol-canvas>
+
       
-      <app-leaflet-canvas></app-leaflet-canvas>
     </div>
     <nav>
       <a routerLink="/dashboard">Dashboard</a>

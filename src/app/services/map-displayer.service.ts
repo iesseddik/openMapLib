@@ -30,10 +30,10 @@ export class MapDisplayerService {
   private markersGroup: L.FeatureGroup;
   private displayedPlaces: IDisplayedPlace[];
 
-  constructor(){
+  constructor() {
     this.markerGroupSubject = new Subject<L.FeatureGroup>();
     this.markersGroup = new L.FeatureGroup();
-    this.displayedPlaces = []
+    this.displayedPlaces = [];
   }
 
   private emitMarkerGroupSubject() {
@@ -58,8 +58,8 @@ export class MapDisplayerService {
       this.displayedPlaces = this.displayedPlaces.filter(dl =>
         dl.place.id !== placeID);
       this.emitMarkerGroupSubject();
-    }
-    else { console.log(`No place identified ${placeID} in displayed Loc[] `) }
+    } else { console.log(`No place identified ${placeID} in displayed Loc[] `);
+   }
   }
 
   clearPlacesList(): void {

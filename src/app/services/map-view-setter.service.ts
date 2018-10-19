@@ -13,35 +13,34 @@ const defaultBounds: L.LatLngBounds = L.latLngBounds([-80, 80], [80, -80]);
   providedIn: 'root'
 })
 export class MapViewSetterService {
-  viewerBounds$:BehaviorSubject<L.LatLngBounds>;
+  viewerBounds$: BehaviorSubject<L.LatLngBounds>;
   private viewerBounds: L.LatLngBounds;
 
   constructor(private mapDisplayerService: MapDisplayerService) {
-    this.viewerBounds = defaultBounds
-    
+    this.viewerBounds = defaultBounds;
+
     this.viewerBounds$ = new BehaviorSubject<L.LatLngBounds>(Object.assign(this.viewerBounds));
     this.mapDisplayerService.markerGroupSubject.subscribe(markerGrp => {
       if (markerGrp.getBounds().isValid()) {
-        this.viewerBounds = markerGrp.getBounds().pad(0.5) ;
-        this.emitViewerBoundsSubject()
-      }
-      else{
-        console.log("Invalid LatLonBound ")
+        this.viewerBounds = markerGrp.getBounds().pad(0.5);
+        this.emitViewerBoundsSubject();
+      } else {
+        console.log('Invalid LatLonBound');
       }
 
-    })
+    });
   }
 
-  private emitViewerBoundsSubject(){
-    this.viewerBounds$.next(this.viewerBounds)
+  private emitViewerBoundsSubject() {
+    this.viewerBounds$.next(this.viewerBounds);
   }
 
-  setViewerBounds(places: Place[] ){
-    if (places.length > 0){
-      this.viewerBounds = new L.LatLngBounds(places.map(place => place.localization))
-      console.log(this.viewerBounds.isValid()) 
+  setViewerBounds(places: Place[]) {
+    if (places.length > 0) {
+      this.viewerBounds = new L.LatLngBounds(places.map(place => place.localization));
+      console.log(this.viewerBounds.isValid());
     }
-    this.emitViewerBoundsSubject()
+    this.emitViewerBoundsSubject();
   }
 
 }
