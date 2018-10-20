@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MapViewSetterService } from './map-view-setter.service';
+import { LeafletViewSetterService } from './leaflet-view-setter.service';
 
 describe('MapViewSetterService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: MapViewSetterService = TestBed.get(MapViewSetterService);
+    const service: LeafletViewSetterService = TestBed.get(LeafletViewSetterService);
     expect(service).toBeTruthy();
   });
 });

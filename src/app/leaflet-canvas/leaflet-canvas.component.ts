@@ -5,8 +5,8 @@ import * as L from 'leaflet';
 
 // SERVICES
 import { PlaceService } from '../services/place.service';
-import { MapDisplayerService } from '../services/map-displayer.service';
-import { MapViewSetterService } from '../services/map-view-setter.service';
+import { LeafletDisplayerService } from '../services/leaflet-displayer.service';
+import { LeafletViewSetterService } from '../services/leaflet-view-setter.service';
 
 
 
@@ -24,9 +24,9 @@ export class LeafletCanvasComponent implements OnInit {
   private markerGroup: L.FeatureGroup;
 
   constructor(
-    private mapDisplayerService: MapDisplayerService,
+    private mapDisplayerService: LeafletDisplayerService,
     private placeService: PlaceService,
-    private viewSetterService: MapViewSetterService
+    private viewSetterService: LeafletViewSetterService
   ) {
     this.markerGroup = new L.FeatureGroup();
   }

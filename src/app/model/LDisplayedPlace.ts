@@ -1,5 +1,5 @@
 import { Place } from './Place';
-import { IDisplayedPlace } from './intf/IDisplayedPlace';
+import { IDisplayedPlace } from './intf/ILDisplayedPlace';
 
 export class DisplayedPlace implements IDisplayedPlace {
 

@@ -11,8 +11,8 @@ import { Subject } from 'rxjs';
 import * as L from 'leaflet';
 
 // MODEL
-import { IDisplayedPlace } from '../model/intf/IDisplayedPlace';
-import { DisplayedPlace } from '../model/DisplayedPlace';
+import { IDisplayedPlace } from '../model/intf/ILDisplayedPlace';
+import { DisplayedPlace } from '../model/LDisplayedPlace';
 
 const defaultIcon: L.Icon = L.icon({
   iconUrl: '../assets/default-location-icon.png',
@@ -25,7 +25,7 @@ const defaultIcon: L.Icon = L.icon({
 @Injectable({
   providedIn: 'root'
 })
-export class MapDisplayerService {
+export class LeafletDisplayerService {
   markerGroupSubject: Subject<L.FeatureGroup>;
   private markersGroup: L.FeatureGroup;
   private displayedPlaces: IDisplayedPlace[];

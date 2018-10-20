@@ -7,7 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Place } from '../model/Place';
 
 import { MessageService } from './message.service';
-import { MapDisplayerService } from './map-displayer.service';
+import { LeafletDisplayerService } from './leaflet-displayer.service';
 
 // Other Services
 
@@ -24,7 +24,7 @@ export class PlaceService {
 
   constructor( private http: HttpClient,
     private messageService: MessageService,
-    private mapDisplayerService: MapDisplayerService
+    private mapDisplayerService: LeafletDisplayerService
     ) { }
 
   getPlaces(): Observable<Place[]> {

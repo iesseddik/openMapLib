@@ -11,7 +11,7 @@ import { Place } from '../model/Place';
 
 // Services
 import { PlaceService } from '../services/place.service';
-import { MapViewSetterService } from '../services/map-view-setter.service';
+import { LeafletViewSetterService } from '../services/leaflet-view-setter.service';
 
 @Component({
   selector: 'app-place-detail',
@@ -26,7 +26,7 @@ export class PlaceDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private placeService: PlaceService,
     private location: Location,
-    private mapViewSetterService: MapViewSetterService
+    private mapViewSetterService: LeafletViewSetterService
     ) { }
 
   ngOnInit(): void {

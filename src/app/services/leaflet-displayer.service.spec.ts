@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MapDisplayerService } from './map-displayer.service';
+import { LeafletDisplayerService } from './leaflet-displayer.service';
 
 describe('MapDisplayerService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: MapDisplayerService = TestBed.get(MapDisplayerService);
+    const service: LeafletDisplayerService = TestBed.get(LeafletDisplayerService);
     expect(service).toBeTruthy();
   });
 });

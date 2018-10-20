@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 // LEAFLET
 import * as L from 'leaflet';
 import { Subject, BehaviorSubject } from 'rxjs';
-import { MapDisplayerService } from './map-displayer.service';
-import { IDisplayedPlace } from '../model/intf/IDisplayedPlace';
+import { LeafletDisplayerService } from './leaflet-displayer.service';
+import { IDisplayedPlace } from '../model/intf/ILDisplayedPlace';
 import { Place } from '../model/Place';
 
 const defaultBounds: L.LatLngBounds = L.latLngBounds([-80, 80], [80, -80]);
@@ -12,11 +12,11 @@ const defaultBounds: L.LatLngBounds = L.latLngBounds([-80, 80], [80, -80]);
 @Injectable({
   providedIn: 'root'
 })
-export class MapViewSetterService {
+export class LeafletViewSetterService {
   viewerBounds$: BehaviorSubject<L.LatLngBounds>;
   private viewerBounds: L.LatLngBounds;
 
-  constructor(private mapDisplayerService: MapDisplayerService) {
+  constructor(private mapDisplayerService: LeafletDisplayerService) {
     this.viewerBounds = defaultBounds;
 
     this.viewerBounds$ = new BehaviorSubject<L.LatLngBounds>(Object.assign(this.viewerBounds));
